@@ -1,0 +1,27 @@
+.image{
+ width: 1528px;
+ height: 715px;
+  z-index: 0;
+ position: absolute; 
+
+}
+
+.smalll{
+
+    position: relative;
+    padding-top: 250px;
+    /* padding-left: 50px; */
+}
+
+.mainhead{
+    font-size: xx-large;
+   padding-left: 10px;
+}
+
+.subhead{
+    padding-left: 50px;
+}
+
+.getbtn{
+margin-left: 500px;
+}

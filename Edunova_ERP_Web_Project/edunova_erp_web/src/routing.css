@@ -1,0 +1,23 @@
+.backgroundcolor{
+     background-color: rgb(30, 30, 73);
+     height:70px;
+    
+}
+
+
+.bighead{
+    margin-left: 675px;
+    background-color: rgb(30, 30, 73);
+    font-size: xx-large;
+     height:70px;
+
+    
+}
+
+.head{
+   
+    padding-left: 12px;
+    text-decoration: none;
+    color: aliceblue;
+   
+}
