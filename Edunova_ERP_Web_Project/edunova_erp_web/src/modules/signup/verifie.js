@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 function Verify()
 {
   const navigate = useNavigate();
+
   const [message, setMessage] = useState("Verifying your email...");
  const auth=getAuth()
 if (isSignInWithEmailLink(auth, window.location.href)) {
@@ -36,6 +37,6 @@ return (
   );
   
 }
-export default Verify()
+export default Verify; 
 
 

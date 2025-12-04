@@ -1,104 +1,42 @@
-import { firebaseConfig } from "../../firebase";
-import { getAuth, sendSignInLinkToEmail } from "firebase/auth";
-
+import { fetchSignInMethodsForEmail, getAuth, sendSignInLinkToEmail } from "firebase/auth";
+import { auth } from "../../firebase";
 
 export async function signup(mail)
 {
+  const auth = getAuth();
+  alert("Running")
+  console.log("Email:",mail)
+  if(!mail){
+    alert("Email is empty!!")
+  }
+    const signInMethods = await fetchSignInMethodsForEmail(auth, mail.trim());
+    console.log("Method:",signInMethods);
+    alert("Length=",+signInMethods.length)
+    console.log("Method:",signInMethods);
+      if (signInMethods.length > 0) {
+       alert("Email already exists in Authentication !!");
+       return; 
+      } 
+
   const actionCodeSettings={
     url:'http://localhost:3000/verify',
     handleCodeInApp: true,
   };
 
-const auth = getAuth();
 sendSignInLinkToEmail(auth, mail, actionCodeSettings)
   .then(() => {
     // The link was successfully sent. Inform the user.
     // Save the email locally so you don't need to ask the user for it again
     // if they open the link on the same device.
     window.localStorage.setItem('emailForSignIn', mail);
-    // ...
+    alert("Verification Link Sent. Please Check Your Email")
+        alert(" First Go to Gmail and verify your email Then login!!")
+
   })
   .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
+    alert (error.message);
     // ...
-  });
-
-  
+  }); 
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import { getAuth, fetchSignInMethodsForEmail, createUserWithEmailAndPassword, sendEmailVerification} from "firebase/auth";
-// //   Check The duplicate Email !!
-
-// export async function signup(mail,pass)
-// { 
-//  const auth = getAuth();
-
-//   const signInMethods = await fetchSignInMethodsForEmail(auth, mail);
-//     if (signInMethods.length >0) {
-//      alert("Email already exists in Authentication !!");
-//      return;  
-//     } 
-  
-
-//       // Email Verification 
-//   try {
-//     const userCredential = await createUserWithEmailAndPassword(auth, mail, pass);
-//     const user = userCredential.user;
-
-//     await sendEmailVerification(user);
-
-//     alert("Verification Email Sent! Please verify your email.");
-//     return;
-    
-//   } catch (error) {
-//     console.log("Error:", error.message);
-//     return;
-//   }
-
-// }
-
- 

@@ -1,7 +1,3 @@
-
-
-
-
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
@@ -12,20 +8,18 @@ import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
- export const firebaseConfig = {
-  apiKey: "AIzaSyArA2Q1jmpCENeT6c9V3vZqOC7BZ2NSLGs",
-  authDomain: "fir-a0261.firebaseapp.com",
-  databaseURL: "https://fir-a0261-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "fir-a0261",
-  storageBucket: "fir-a0261.firebasestorage.app",
-  messagingSenderId: "337118095874",
-  appId: "1:337118095874:web:549c25a0e23fdaa63a551b",
-  measurementId: "G-XV9C9RPX0B"
+const firebaseConfig = {
+  apiKey: "AIzaSyCLOYd5OkvtiJ0tk0K4BsNw8-28W4SklIM",
+  authDomain: "testing-auth-2e3c0.firebaseapp.com",
+  projectId: "testing-auth-2e3c0",
+  storageBucket: "testing-auth-2e3c0.firebasestorage.app",
+  messagingSenderId: "190539547540",
+  appId: "1:190539547540:web:3a37f2226d73bdea8b8581",
+  measurementId: "G-BM1LH33XF4"
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-
+export const app = initializeApp(firebaseConfig);
 export const auth=getAuth(app)
-const analytics = getAnalytics(app);
 export const db =getFirestore(app)
+

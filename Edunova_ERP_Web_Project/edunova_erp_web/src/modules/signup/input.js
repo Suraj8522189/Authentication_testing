@@ -16,7 +16,9 @@ function Input()
       alert("Please fill in both fields");
       return;
     }
-     signup(mail)
+
+     await signup(mail.trim());
+     
 try{
   const docRef = await addDoc(collection(db, "users"), {                     //     Add The data in firebase Storage
     Fullname: fname,

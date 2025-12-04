@@ -9,6 +9,7 @@ import Input from "./modules/signup/input.js";
 import Loginpage from "./modules/login/loginpage.js";
 import Verify from "./modules/signup/verifie.js";
 import Success from "./modules/signup/success.js";
+import Phone from "./phone.js";
 
 function Routers (){
     return(
@@ -24,6 +25,7 @@ function Routers (){
 <Link to="/contact"  className="head">Contact</Link>
  <Link to="/login"  className="head">Log IN</Link>
 <Link to="/signup"  className="head">Sign Up</Link> 
+<Link to="/phone" className="head">Phone</Link>
 </div>
 </div>
 </nav>
@@ -38,6 +40,7 @@ function Routers (){
 <Route path="/signup" element={<Input/>}></Route>
 <Route path="/verify" element={<Verify/>}></Route>
 <Route path="/success" element={<Success/>}></Route> 
+<Route path="/phone" element={<Phone/>}></Route>
 
 
 </Routes>
