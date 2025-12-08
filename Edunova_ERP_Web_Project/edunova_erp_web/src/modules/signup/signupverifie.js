@@ -3,19 +3,22 @@ import { auth } from "../../firebase";
 
 export async function signup(mail)
 {
-  const auth = getAuth();
+  
   alert("Running")
   console.log("Email:",mail)
   if(!mail){
     alert("Email is empty!!")
   }
+
+  console.log(auth)
+
     const signInMethods = await fetchSignInMethodsForEmail(auth, mail.trim());
     console.log("Method:",signInMethods);
-    alert("Length=",+signInMethods.length)
+    alert("Length="+signInMethods.length)
     console.log("Method:",signInMethods);
       if (signInMethods.length > 0) {
        alert("Email already exists in Authentication !!");
-       return; 
+       return 0; 
       } 
 
   const actionCodeSettings={
@@ -39,4 +42,3 @@ sendSignInLinkToEmail(auth, mail, actionCodeSettings)
   }); 
 
 }
-

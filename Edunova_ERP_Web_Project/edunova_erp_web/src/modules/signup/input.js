@@ -17,8 +17,16 @@ function Input()
       return;
     }
 
-     await signup(mail.trim());
-     
+    const rt = await signup(mail.trim());
+
+     if (rt == 0 )
+     {
+      console.log("data not stored")
+
+     }
+     else{
+      console.log("data stored ")
+
 try{
   const docRef = await addDoc(collection(db, "users"), {                     //     Add The data in firebase Storage
     Fullname: fname,
@@ -35,6 +43,9 @@ try{
      alert(`Login attempted with:\nFulname: ${fname} \nContact: ${contact} \nEmail: ${mail}\nPassword: ${pass}`);
 }
 
+
+     }
+     
     return(<>
     <center>
     <h1>
@@ -77,8 +88,3 @@ try{
     </>)
 }
 export default Input;
-
-
-
-
-
