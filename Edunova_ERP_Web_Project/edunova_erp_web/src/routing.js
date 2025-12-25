@@ -10,6 +10,7 @@ import Loginpage from "./modules/login/loginpage.js";
 import Verify from "./modules/signup/verifie.js";
 import Success from "./modules/signup/success.js";
 import Phone from "./phone.js";
+import App from "./App.js";
 
 function Routers (){
     return(
@@ -39,8 +40,9 @@ function Routers (){
 <Route path="/login" element={<Loginpage/>}></Route>
 <Route path="/signup" element={<Input/>}></Route>
 <Route path="/verify" element={<Verify/>}></Route>
-<Route path="/success" element={<Success/>}></Route> 
+{/* <Route path="/success" element={<Success/>}></Route>  */}
 <Route path="/phone" element={<Phone/>}></Route>
+<Route path="AdminPanal" element={<App/>}></Route>
 
 
 </Routes>

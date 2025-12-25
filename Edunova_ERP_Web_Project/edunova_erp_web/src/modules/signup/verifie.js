@@ -22,7 +22,7 @@ if (isSignInWithEmailLink(auth, window.location.href)) {
       window.localStorage.removeItem('emailForSignIn');
       
           setMessage("🎉 Email verified successfully!");
-          setTimeout(() => navigate("/success"), 1500);
+          setTimeout(() => navigate("/AdminPanal"), 1500);
      
     })
     .catch((error) => {

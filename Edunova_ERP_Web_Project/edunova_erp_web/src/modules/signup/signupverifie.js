@@ -13,9 +13,9 @@ export async function signup(mail)
   console.log(auth)
 
     const signInMethods = await fetchSignInMethodsForEmail(auth, mail.trim());
-    console.log("Method:",signInMethods);
-    alert("Length="+signInMethods.length)
-    console.log("Method:",signInMethods);
+    // console.log("Method:",signInMethods);
+    // alert("Length="+signInMethods.length)
+    // console.log("Method:",signInMethods);
       if (signInMethods.length > 0) {
        alert("Email already exists in Authentication !!");
        return 0; 
