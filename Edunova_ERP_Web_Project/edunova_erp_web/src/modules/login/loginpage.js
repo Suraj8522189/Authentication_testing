@@ -1,81 +1,48 @@
 import { useState } from "react";
-import React from "react";
-import { firebaseConfig } from "../../firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { loginverifei } from "./loginverifie";
 import { useNavigate } from "react-router-dom";
-import { auth } from "../../firebase";
+import "./login_p.css"
 
+function Loginpage() {
 
-
-function Loginpage()
-{
-    const navigate = useNavigate();
-
-    const [email, setEmail] = useState("");
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-const handleLogin = async() => {
+  async function handleLogin(){
 
     if (!email || !password) {
       alert("Please fill in both fields");
       return;
     }
-
-try {
-  const checkmail = await signInWithEmailAndPassword(
-    auth,
-    email.trim(),
-    password
-  );
-
-  const users = checkmail.user;
-  alert("Login Successful!");
-  console.log(users.email);
-     setTimeout(() => navigate("/AdminPanal"), 1500);
-
-
-} catch (error) {
-
-  if (error.code === "auth/user-not-found") {
-    alert("Please signup first!");
-  } 
-  else if (error.code === "auth/wrong-password") {
-    alert("Wrong password!");
-  } 
-  else {
-    alert(error.message);
+      await loginverifei(email,password,navigate)
+    
   }
-}
+
+ return (
+  <div className="login-container">
+    <div className="login-box">
+      <h1>Welcome To Login</h1>
+
+      <input
+        type="email"
+        placeholder="Enter your email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+
+      <input
+        type="password"
+        placeholder="Enter your password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+
+      <button onClick={handleLogin}>Login</button>
+    </div>
+  </div>
+);
+
 }
 
-    return(<>
-     
-        <center>
-               <h1>
-             Welcome To Login
-             <br></br>
-          <input
-            type="email"
-            placeholder="Enter your email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-     <br></br>
-          <input
-            type="password"
-            placeholder="Enter your password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        <br></br>
-        <button
-          onClick={handleLogin}
-        >
-          Login
-        </button>
-         </h1>
-    </center>
-   
-    </>)
-}
 export default Loginpage;

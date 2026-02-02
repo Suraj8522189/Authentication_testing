@@ -3,6 +3,7 @@ import { firebaseConfig } from "../../firebase";
 import { collection, addDoc} from "firebase/firestore";      
 import { db } from "../../firebase";
 import { signup } from "./signupverifie";
+import "./signup.css"
 function Input()    
 {
     var [fname, setname]=useState("");
@@ -42,49 +43,47 @@ try{
 }
      alert(`Login attempted with:\nFulname: ${fname} \nContact: ${contact} \nEmail: ${mail}\nPassword: ${pass}`);
 }
-
-
      }
-     
-    return(<>
-    <center>
-    <h1>
-        Welcome To Signup
-        <br></br>
-    <input 
-    type="text" 
-    placeholder="Full Name"
-    value={fname}
-    onChange={(e)=>setname(e.target.value)}>
-    </input>
-    <br></br>
 
-    <input 
-    type="email"
-    placeholder="Email"
-    value={mail}
-    onChange={(e) => setmail(e.target.value)}>
-    </input>
-        <br></br>
+    return (
+  <>
+    <center className="signup-container">
+      <div className="signup-box">
+        <h1>Welcome To Signup</h1>
 
-    <input  
-    type="Number" 
-    placeholder="Contact"
-    value={contact}
-    onChange={(e) => setcontact(e.target.value)}>
-    </input>
-    <br></br>
+        <input
+          type="text"
+          placeholder="Full Name"
+          value={fname}
+          onChange={(e) => setname(e.target.value)}
+        />
 
-    <input 
-    type="password" 
-    placeholder="Password"
-    value={pass}
-    onChange={(e) => setpass(e.target.value)}>
-    </input>
-        <br></br>
+        <input
+          type="email"
+          placeholder="Email"
+          value={mail}
+          onChange={(e) => setmail(e.target.value)}
+        />
+
+        <input
+          type="number"
+          placeholder="Contact"
+          value={contact}
+          onChange={(e) => setcontact(e.target.value)}
+        />
+
+        <input
+          type="password"
+          placeholder="Password"
+          value={pass}
+          onChange={(e) => setpass(e.target.value)}
+        />
+
         <button onClick={handleSign}>Signup</button>
-    </h1>
+      </div>
     </center>
-    </>)
+  </>
+);
+
 }
 export default Input;
